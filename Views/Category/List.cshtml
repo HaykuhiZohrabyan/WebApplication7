@@ -1,0 +1,35 @@
+﻿@model List<ProductListViewModel>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Product List</h1>
+@if(Model.Any())
+{
+    <table class="table table-striped">
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                <span class="@item.PriceCssClassName">@item.Price</span>
+                </td>
+            <td>
+                @(item.Discount> 0 ? item.Discount:"-")
+               </td>
+            <td>@item.NewPrice</td>
+        </tr>
+    }
+</table>
+}
+
+else{
+    <h1>No products for this category</h1>
+}
+
+<style type="text/css">
+    .new-price{
+        text-decoration:line-through;
+        color:grey;
+    }
+</style>

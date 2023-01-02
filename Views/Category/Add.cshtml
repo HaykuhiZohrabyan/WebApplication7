@@ -1,0 +1,15 @@
+﻿@model CategoryAddEdit
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add Category</h1>
+
+<form method="post">
+
+    <input asp-for="Name" class="form-control" />
+    <span class="text-danger" asp-validation-for="Name"></span>
+    <button type="submit" class="btn btn-success"> 
+        Save
+    </button>
+</form>

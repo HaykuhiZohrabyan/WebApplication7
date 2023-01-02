@@ -1,0 +1,30 @@
+﻿@model List<CategoryListViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Categories List</h1>
+<a asp-action="Add" class="btn btn-success">+ Add new</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Product Count</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryName</td>
+                <td>@item.ProductCount</td>
+                <td>
+                    <a asp-action="List" asp-route-categoryId="@item.CategoryId">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
